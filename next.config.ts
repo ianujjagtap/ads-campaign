@@ -8,6 +8,15 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [],
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/dashboard/analytics',
+        permanent: true,
+      },
+    ]
+  },
 };
 
 export default nextConfig;
