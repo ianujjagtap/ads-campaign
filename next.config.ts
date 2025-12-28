@@ -17,6 +17,9 @@ const nextConfig: NextConfig = {
       },
     ]
   },
+  env: {
+    MIXO_API_URL: process.env.MIXO_API_URL,
+  },
 };
 
 export default nextConfig;

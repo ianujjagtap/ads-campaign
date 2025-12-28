@@ -1,26 +1,23 @@
 "use client";
 
 import Layout from "@/components/dashboard/dashboard-layout";
-import { Label } from "@/primitives/label";
+import { CampaignStats } from "@/components/dashboard/analytics/campaign-stats";
 
-const page = () => {
+const Page = () => {
   return (
-    <div>
+    <div className="flex h-screen w-full items-center justify-center">
       <Layout>
-        <div className="m-4 space-y-4">
-          <Label className="text-2xl">Manage Application Links</Label>
-          <div className="flex flex-col gap-4 pt-4 lg:flex-row lg:items-start">
-            <div className="w-full lg:w-1/3">
-              "Hello"
-            </div>
-            <div className="w-full lg:w-2/3">
-              "Hello"
-            </div>
+        <div className="flex-1 space-y-4 p-8 pt-6">
+          <div className="flex items-center justify-between space-y-2">
+            <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
+          </div>
+          <div className="space-y-4">
+            <CampaignStats />
           </div>
         </div>
       </Layout>
     </div>
-  );
+  );  
 };
 
-export default page;
+export default Page;

@@ -3,6 +3,7 @@ import "@/styles/root-layout.css";
 import { fonts } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/providers/theme";
+import { TanStackQueryProvider } from "@/providers/tanstack-query";
 
 export const metadata: Metadata = {
   title: "ads-campaign",
@@ -31,7 +32,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <TanStackQueryProvider>
+            {children}
+          </TanStackQueryProvider>
         </ThemeProvider>
       </body>
     </html>
