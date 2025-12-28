@@ -1,0 +1,147 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.3.7/schema.json",
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 80,
+    "lineEnding": "lf",
+    "attributePosition": "auto",
+    "includes": [
+      "**",
+      "!**/.next",
+      "!**/.vercel",
+      "!**/.env",
+      "!**/.changeset",
+      "!**/.husky",
+      "!**/.turbo",
+      "!**/node_modules",
+      "!**/build",
+      "!**/dist"
+    ]
+  },
+  "vcs": {
+    "clientKind": "git",
+    "enabled": true,
+    "defaultBranch": "master",
+    "useIgnoreFile": true
+  },
+  "assist": {
+    "actions": { "source": { "organizeImports": "on" } },
+    "includes": ["**/*.tsx", "**/*.ts"],
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "nursery": {
+        "useSortedClasses": {
+          "fix": "unsafe",
+          "level": "warn",
+          "options": {
+            "attributes": ["className"],
+            "functions": ["cn", "cva"]
+          }
+        }
+      },
+      "correctness": {
+        "recommended": true,
+        "useUniqueElementIds": "off",
+        "noUnusedVariables": "warn",
+        "noUnusedImports": "warn",
+        "noInvalidPositionAtImportRule": "off",
+        "useExhaustiveDependencies": "off"
+      },
+      "style": {
+        "recommended": true,
+        "noParameterAssign": "error",
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useSelfClosingElements": "error",
+        "useSingleVarDeclarator": "error",
+        "noUnusedTemplateLiteral": "error",
+        "useNumberNamespace": "error",
+        "noInferrableTypes": "error",
+        "noUselessElse": "error",
+        "noNonNullAssertion": "off"
+      },
+      "complexity": {
+        "recommended": true
+      },
+      "performance": {
+        "recommended": true
+      },
+      "suspicious": {
+        "noUnknownAtRules": "off",
+        "recommended": true,
+        "noArrayIndexKey": "off",
+        "noDocumentCookie": "off",
+        "noExplicitAny": "off"
+      },
+      "a11y": {
+        "recommended": true,
+        "useKeyWithClickEvents": "off",
+
+        "noStaticElementInteractions": "off",
+        "useMediaCaption": "off",
+        "useAriaPropsSupportedByRole": "off"
+      },
+      "security": {
+        "recommended": true,
+        "noDangerouslySetInnerHtml": "off"
+      }
+    },
+    "includes": [
+      "**",
+      "!**/.vscode",
+      "!**/.next",
+      "!**/.vercel",
+      "!**/.env",
+      "!**/.changeset",
+      "!**/.husky",
+      "!**/.turbo",
+      "!**/node_modules",
+      "!**/build",
+      "!**/dist"
+    ]
+  },
+  "javascript": {
+    "formatter": {
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "es5",
+      "semicolons": "always",
+      "arrowParentheses": "always",
+      "bracketSpacing": true,
+      "bracketSameLine": false,
+      "quoteStyle": "double",
+      "attributePosition": "auto"
+    }
+  },
+  "css": {
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineWidth": 80,
+      "lineEnding": "lf",
+      "quoteStyle": "double"
+    },
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "json": {
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineWidth": 80,
+      "lineEnding": "lf",
+      "trailingCommas": "none"
+    }
+  }
+}
