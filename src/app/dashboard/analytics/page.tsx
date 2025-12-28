@@ -2,6 +2,7 @@
 
 import Layout from "@/components/dashboard/dashboard-layout";
 import { CampaignStats } from "@/components/dashboard/analytics/campaign-stats";
+import { CampaignCharts } from "@/components/dashboard/analytics/campaign-charts";
 
 const Page = () => {
   return (
@@ -13,6 +14,7 @@ const Page = () => {
           </div>
           <div className="space-y-4">
             <CampaignStats />
+            <CampaignCharts />
           </div>
         </div>
       </Layout>
