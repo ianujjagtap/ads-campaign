@@ -23,7 +23,7 @@ A responsive, feature-rich dashboard for managing and analyzing advertising camp
 
 To run this project, you will need to add the following environment variables to your `.env` file:
 
-`NEXT_PUBLIC_API_URL`= https://mixo-fe-backend-task.vercel.app
+`MIXO_API_URL`= https://mixo-fe-backend-task.vercel.app
 
 ## Getting Started
 
