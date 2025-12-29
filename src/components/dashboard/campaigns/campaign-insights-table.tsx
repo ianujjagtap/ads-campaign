@@ -4,8 +4,8 @@ import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchCampaigns } from "@/services/campaigns";
 import { type Campaign, type CampaignsResponse } from "@/types/campaign";
-import { Skeleton } from "@/primitives/skeleton";
 import { ScrollArea } from "@/primitives/scrollarea";
+import { TableSkeleton } from "@/components/skeletons/table-skeleton";
 import {
   Table,
   TableBody,
@@ -39,22 +39,7 @@ import {
 } from "@/primitives/dropdown";
 import { Checkbox } from "@/primitives/checkbox";
 
-// --- Skeleton Component (Matched to CampaignDataTable) ---
-const LocalTableSkeletonRows = ({ rows = 5, columns = 5 }) => {
-  return (
-    <>
-      {Array.from({ length: rows }).map((_, i) => (
-        <TableRow key={i}>
-          {Array.from({ length: columns }).map((_, j) => (
-            <TableCell key={j}>
-              <Skeleton className="h-6 w-full" />
-            </TableCell>
-          ))}
-        </TableRow>
-      ))}
-    </>
-  );
-};
+
 
 export function CampaignInsightsSection() {
     // Table Logic
@@ -291,7 +276,7 @@ export function CampaignInsightsSection() {
                         </TableHeader>
                         <TableBody>
                             {isLoadingCampaigns ? (
-                                <LocalTableSkeletonRows rows={10} columns={columns.length} />
+                                <TableSkeleton rows={10} columns={columns.length} />
                             ) : table.getRowModel().rows?.length ? (
                             table.getRowModel().rows.map((row) => (
                                 <TableRow

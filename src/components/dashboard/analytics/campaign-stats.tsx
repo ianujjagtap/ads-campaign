@@ -10,6 +10,8 @@ import {
 } from "@/primitives/card";
 import { Activity, PauseCircle, CheckCircle, BarChart3 } from "lucide-react";
 
+import { StatsSkeleton } from "@/components/skeletons/stats-skeleton";
+
 export function CampaignStats() {
   const { data, isLoading, error } = useQuery({
     queryKey: ["campaigns"],
@@ -17,22 +19,7 @@ export function CampaignStats() {
   });
 
   if (isLoading) {
-    return (
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {Array.from({ length: 4 }).map((_, i) => (
-          <Card key={i} className="animate-pulse">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <div className="h-4 w-24 bg-muted rounded" />
-              <div className="h-4 w-4 bg-muted rounded" />
-            </CardHeader>
-            <CardContent>
-              <div className="h-8 w-16 bg-muted rounded" />
-              <div className="mt-2 h-3 w-32 bg-muted rounded" />
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    );
+    return <StatsSkeleton />;
   }
 
   if (error) {

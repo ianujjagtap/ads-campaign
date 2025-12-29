@@ -11,7 +11,7 @@ import { fetchCampaignInsights } from "@/services/campaigns";
 import { type CampaignInsights } from "@/types/campaign";
 import { Card, CardContent, CardHeader, CardTitle } from "@/primitives/card";
 import { Badge } from "@/primitives/badge";
-import { Skeleton } from "@/primitives/skeleton";
+import { InsightsSkeleton } from "@/components/skeletons/insights-skeleton";
 import { 
     Eye, 
     MousePointerClick, 
@@ -110,34 +110,7 @@ export function CampaignInsightsDialog({
         </DialogHeader>
 
         {isLoading ? (
-          <div className="grid gap-6 py-6">
-             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
-                 {Array.from({length: 4}).map((_, i) => (
-                     <Card key={`top-${i}`} className="shadow-sm">
-                         <CardHeader className="flex flex-row items-center justify-between space-y-0 p-6 pb-2">
-                             <Skeleton className="h-4 w-24" />
-                             <Skeleton className="h-4 w-4 rounded-full" />
-                         </CardHeader>
-                         <CardContent className="p-6 pt-2">
-                             <Skeleton className="h-9 w-32" />
-                         </CardContent>
-                     </Card>
-                 ))}
-             </div>
-             <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-                 {Array.from({length: 3}).map((_, i) => (
-                     <Card key={`bottom-${i}`} className="shadow-sm">
-                         <CardHeader className="flex flex-row items-center justify-between space-y-0 p-6 pb-2">
-                             <Skeleton className="h-4 w-24" />
-                             <Skeleton className="h-4 w-4 rounded-full" />
-                         </CardHeader>
-                         <CardContent className="p-6 pt-2">
-                             <Skeleton className="h-9 w-32" />
-                         </CardContent>
-                     </Card>
-                 ))}
-             </div>
-          </div>
+          <InsightsSkeleton />
         ) : isError ? (
            <div className="flex h-48 items-center justify-center text-muted-foreground bg-muted/20 rounded-xl border border-dashed">
             Failed to load insights.

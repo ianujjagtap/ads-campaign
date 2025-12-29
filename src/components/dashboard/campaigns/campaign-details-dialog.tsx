@@ -7,6 +7,7 @@ import {
   DialogTitle,
 } from "@/primitives/dialouge";
 import { Badge } from "@/primitives/badge";
+import { DetailsSkeleton } from "@/components/skeletons/details-skeleton";
 import { fetchCampaignById } from "@/services/campaigns";
 
 interface CampaignDetailsDialogProps {
@@ -42,13 +43,7 @@ export function CampaignDetailsDialog({
         </DialogHeader>
 
         {isLoading ? (
-          <div className="space-y-4 py-4">
-             <div className="h-4 w-1/3 rounded-sm bg-muted animate-pulse" />
-             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <div className="h-10 rounded-sm bg-muted animate-pulse" />
-                <div className="h-10 rounded-sm bg-muted animate-pulse" />
-             </div>
-          </div>
+          <DetailsSkeleton />
         ) : isError ? (
            <div className="flex h-32 items-center justify-center text-sm text-destructive">
             Failed to load campaign details.

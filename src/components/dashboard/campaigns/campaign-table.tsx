@@ -47,26 +47,11 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import { fetchCampaigns } from "@/services/campaigns";
 import { type Campaign, type CampaignsResponse } from "@/types/campaign";
-import { Skeleton } from "@/primitives/skeleton";
 import { CampaignDetailsDialog } from "./campaign-details-dialog";
 import { ScrollArea } from "@/primitives/scrollarea";
+import { TableSkeleton } from "@/components/skeletons/table-skeleton";
 
-// temp skeleton component 
-const LocalTableSkeletonRows = ({ rows = 5, columns = 5 }) => {
-  return (
-    <>
-      {Array.from({ length: rows }).map((_, i) => (
-        <TableRow key={i}>
-          {Array.from({ length: columns }).map((_, j) => (
-            <TableCell key={j}>
-              <Skeleton className="h-6 w-full" />
-            </TableCell>
-          ))}
-        </TableRow>
-      ))}
-    </>
-  );
-};
+
 
 const getStatusBadge = (status: Campaign["status"]) => {
   switch (status) {
@@ -359,7 +344,7 @@ export function CampaignDataTable() {
               </TableHeader>
               <TableBody>
               {isLoading ? (
-                      <LocalTableSkeletonRows rows={10} columns={columns.length} />
+                      <TableSkeleton rows={10} columns={columns.length} />
                     ) : table.getRowModel().rows?.length ? (
                   table.getRowModel().rows.map((row) => (
                     <TableRow

@@ -14,47 +14,11 @@ import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-  type ChartConfig,
 } from "@/primitives/chart";
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 import { useTheme } from "next-themes";
-
-const platformChartConfig = {
-  visitors: {
-    label: "Campaigns",
-  },
-  meta: {
-    label: "Meta",
-    color: "hsl(var(--chart-1))",
-  },
-  google: {
-    label: "Google",
-    color: "hsl(var(--chart-2))",
-  },
-  linkedin: {
-    label: "LinkedIn",
-    color: "hsl(var(--chart-3))",
-  },
-  other: {
-    label: "Other",
-    color: "hsl(var(--chart-4))",
-  },
-} satisfies ChartConfig;
-
-const statusChartConfig = {
-  active: {
-    label: "Active",
-    color: "hsl(var(--chart-2))",
-  },
-  paused: {
-    label: "Paused",
-    color: "hsl(var(--chart-3))",
-  },
-  completed: {
-    label: "Completed",
-    color: "hsl(var(--chart-1))",
-  },
-} satisfies ChartConfig;
+import { platformChartConfig, statusChartConfig } from "@/config/charts";
+import { ChartSkeleton } from "@/components/skeletons/chart-skeleton";
 
 export function CampaignCharts() {
   const { resolvedTheme } = useTheme();
@@ -66,10 +30,7 @@ export function CampaignCharts() {
   });
 
   if (isLoading) {
-    return <div className="grid gap-4 md:grid-cols-2">
-      <Card className="h-[350px] animate-pulse bg-muted/20" />
-      <Card className="h-[350px] animate-pulse bg-muted/20" />
-    </div>;
+    return <ChartSkeleton />;
   }
 
   if (error || !data) {
@@ -97,7 +58,7 @@ export function CampaignCharts() {
     };
   }).sort((a, b) => b.visitors - a.visitors);
 
-  // 2. Process Data for Status Distribution
+  // 2. process data for status distribution
   const statusCounts: Record<string, number> = {};
   campaigns.forEach((c) => {
     statusCounts[c.status] = (statusCounts[c.status] || 0) + 1;
@@ -111,7 +72,7 @@ export function CampaignCharts() {
 
   return (
     <div className="grid gap-4 md:grid-cols-2">
-      {/* Active Platforms Chart (Bar Chart) */}
+      {/* active platforms chart (bar chart) */}
       <Card>
         <CardHeader>
           <CardTitle>Active Platforms</CardTitle>
@@ -143,8 +104,8 @@ export function CampaignCharts() {
         </CardFooter>
       </Card>
 
-      {/* Campaign Status Chart (Bar Chart) */}
-       <Card>
+      {/* campaign status chart (bar chart) */}
+      <Card>
         <CardHeader>
           <CardTitle>Campaign Status</CardTitle>
           <CardDescription>Distribution of campaign statuses</CardDescription>
