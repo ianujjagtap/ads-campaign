@@ -1,6 +1,6 @@
 "use client";
 
-import { RouteConfig } from "@/config/routes";      
+import { RouteConfig } from "@/config/routes";
 import { ScrollArea } from "@/primitives/scrollarea";
 import {
   Sidebar,
@@ -12,6 +12,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/primitives/sidebar";
+import { Logo } from "@/components/logo";
 import Link from "next/link";
 
 export function AppSidebar() {
@@ -19,8 +20,8 @@ export function AppSidebar() {
     <Sidebar collapsible="icon">
       <SidebarHeader className="bg-background">
         <div className="flex h-16 items-center justify-center bg-background pb-5">
-          <Link href={"/dashboard/analytics"} className="font-mono text-[0.9vw] text-wrap">
-            CAMPAIGN
+          <Link href={"/dashboard/analytics"}>
+             <Logo className="h-8 w-auto" />
           </Link>
         </div>
       </SidebarHeader>
