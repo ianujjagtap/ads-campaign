@@ -142,10 +142,7 @@ export function CampaignDataTable() {
             <TooltipProvider>
                 <Tooltip>
                     <TooltipTrigger asChild>
-                         <div 
-                            className="font-medium cursor-pointer hover:underline decoration-dashed underline-offset-4 decoration-muted-foreground/50 transition-all"
-                            onClick={() => handleViewDetails(campaign.id)}
-                         >
+                         <div className="font-medium">
                             {row.getValue("name")}
                         </div>
                     </TooltipTrigger>
