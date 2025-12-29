@@ -8,7 +8,7 @@ export const RouteConfig = [
   },
   {
     title: "All Campaigns",
-    url: "/dashboard/all-campaingns",
+    url: "/dashboard/all-campaigns",
     icon: ListTodo,
   },
   {

@@ -19,8 +19,8 @@ export function AppSidebar() {
     <Sidebar collapsible="icon">
       <SidebarHeader className="bg-background">
         <div className="flex h-16 items-center justify-center bg-background pb-5">
-          <Link href={"/dashboard/analytics"}>
-            ADS CAMPAIGN
+          <Link href={"/dashboard/analytics"} className="font-mono text-[0.9vw] text-wrap">
+            CAMPAIGN
           </Link>
         </div>
       </SidebarHeader>
