@@ -7,7 +7,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/primitives/dialouge";
-import { fetchCampaignInsights, type CampaignInsights } from "@/services/campaigns";
+import { fetchCampaignInsights } from "@/services/campaigns";
+import { type CampaignInsights } from "@/types/campaign";
 import { Card, CardContent, CardHeader, CardTitle } from "@/primitives/card";
 import { Badge } from "@/primitives/badge";
 import { Skeleton } from "@/primitives/skeleton";

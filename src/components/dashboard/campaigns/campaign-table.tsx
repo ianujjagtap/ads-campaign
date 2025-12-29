@@ -45,7 +45,8 @@ import {
     TooltipTrigger,
 } from "@/primitives/tooltip";
 import { useQuery } from "@tanstack/react-query";
-import { fetchCampaigns, type Campaign, type CampaignsResponse } from "@/services/campaigns";
+import { fetchCampaigns } from "@/services/campaigns";
+import { type Campaign, type CampaignsResponse } from "@/types/campaign";
 import { Skeleton } from "@/primitives/skeleton";
 import { CampaignDetailsDialog } from "./campaign-details-dialog";
 import { ScrollArea } from "@/primitives/scrollarea";
