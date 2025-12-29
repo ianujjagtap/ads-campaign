@@ -10,5 +10,10 @@ export const RouteConfig = [
     title: "All Campaigns",
     url: "/dashboard/all-campaingns",
     icon: ListTodo,
+  },
+  {
+    title: "Campaign Insights",
+    url: "/dashboard/campaign-insights",
+    icon: ChartNoAxesColumnIncreasing, // Using valid icon, user suggested LineChart but imports are here. reusing existing or adding new? existing imports has ChartNoAxesColumnIncreasing. Let's use LineChart if available or just duplicate for now. User said "LineChart or similar".
   }
 ];

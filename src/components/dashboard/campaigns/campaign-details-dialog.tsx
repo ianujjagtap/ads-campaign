@@ -33,7 +33,7 @@ export function CampaignDetailsDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="w-[95vw] sm:max-w-md max-h-[85vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Campaign Details</DialogTitle>
           <DialogDescription>
@@ -44,7 +44,7 @@ export function CampaignDetailsDialog({
         {isLoading ? (
           <div className="space-y-4 py-4">
              <div className="h-4 w-1/3 rounded-sm bg-muted animate-pulse" />
-             <div className="grid grid-cols-2 gap-4">
+             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div className="h-10 rounded-sm bg-muted animate-pulse" />
                 <div className="h-10 rounded-sm bg-muted animate-pulse" />
              </div>
@@ -66,7 +66,7 @@ export function CampaignDetailsDialog({
                 </Badge>
             </div>
             
-             <div className="grid grid-cols-2 gap-4 border-t pt-4">
+             <div className="grid grid-cols-1 gap-4 border-t pt-4 sm:grid-cols-2">
                 <div>
                      <span className="text-xs text-muted-foreground block mb-1">Total Budget</span>
                      <span className="font-mono font-medium">
@@ -81,7 +81,7 @@ export function CampaignDetailsDialog({
                 </div>
              </div>
 
-              <div className="grid grid-cols-2 gap-4 border-t pt-4">
+              <div className="grid grid-cols-1 gap-4 border-t pt-4 sm:grid-cols-2">
                 <div>
                      <span className="text-xs text-muted-foreground block mb-1">Full Campaign ID</span>
                      <span className="text-xs font-mono">{campaign.id}</span>

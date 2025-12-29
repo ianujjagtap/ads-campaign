@@ -34,3 +34,57 @@ export const fetchCampaignById = async (id: string): Promise<CampaignDetailRespo
     }
     return response.json();
 };
+export interface GlobalInsights {
+  timestamp: string;
+  total_campaigns: number;
+  active_campaigns: number;
+  paused_campaigns: number;
+  completed_campaigns: number;
+  total_impressions: number;
+  total_clicks: number;
+  total_conversions: number;
+  total_spend: number;
+  avg_ctr: number;
+  avg_cpc: number;
+  avg_conversion_rate: number;
+}
+
+export interface CampaignInsights {
+  timestamp: string;
+  impressions: number;
+  clicks: number;
+  conversions: number;
+  spend: number;
+  ctr: number;
+  cpc: number;
+  conversion_rate: number;
+}
+
+export interface GlobalInsightsResponse {
+  insights: GlobalInsights;
+}
+
+export interface CampaignInsightsResponse {
+  insights: CampaignInsights;
+}
+
+export const fetchGlobalInsights = async (): Promise<GlobalInsightsResponse> => {
+  const response = await fetch(`${process.env.MIXO_API_URL}/campaigns/insights`, {
+      method: 'POST',
+      headers: {
+          'accept': 'application/json'
+      }
+  });
+  if (!response.ok) {
+    throw new Error("Failed to fetch global insights");
+  }
+  return response.json();
+};
+
+export const fetchCampaignInsights = async (id: string): Promise<CampaignInsightsResponse> => {
+    const response = await fetch(`${process.env.MIXO_API_URL}/campaigns/${id}/insights`);
+    if (!response.ok) {
+        throw new Error("Failed to fetch campaign insights");
+    }
+    return response.json();
+};
